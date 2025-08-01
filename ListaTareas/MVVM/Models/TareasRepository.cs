@@ -15,7 +15,7 @@ namespace ListaTareas.MVVM.Models
 
         public TareasRepository()
         {
-            _client = new FirebaseClient("https://fir-maui-67420-default-rtdb.firebaseio.com/");
+            _client = new FirebaseClient("https://****************.firebaseio.com/");
         }
 
         //1. Crear el documento
