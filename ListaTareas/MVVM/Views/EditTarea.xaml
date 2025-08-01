@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup  
+            xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+            x:Class="ListaTareas.MVVM.Views.EditTarea">
+    <Border StrokeShape="RoundRectangle 20"
+            StrokeThickness="4"
+            Padding="10"
+            BackgroundColor="White" >
+        <Border.Stroke>
+            <LinearGradientBrush EndPoint="0,1">
+                <GradientStop Color="#325d88"
+                          Offset="0.1" />
+                <GradientStop Color="#b84743"
+                          Offset="1.0" />
+            </LinearGradientBrush>
+        </Border.Stroke>
+        <VerticalStackLayout Spacing="10">
+            <!-- 🔵 HEADER -->
+            <Label Text="Editar Tarea" 
+                   VerticalOptions="Center" 
+                   HorizontalOptions="Center"
+                   FontSize="Large"
+                   TextColor="#325d88"
+                   FontAttributes="Bold"
+                   Margin="0,10,0,0"/>
+            <BoxView HeightRequest="2" Color="#325d88"/>
+            <!-- 🔵 CUERPO -->
+            <VerticalStackLayout Padding="10">
+                <Entry Placeholder="Nombre de la tarea"
+                   PlaceholderColor="Black"
+                   TextColor="Black"
+                   Text="{Binding TareaTO.Nombre}" />
+                <Entry Placeholder="Descripción"
+                   PlaceholderColor="Black"
+                   TextColor="Black"
+                   Text="{Binding TareaTO.Descripcion}" />
+                <DatePicker Date="{Binding TareaTO.FechaVencimiento}"
+                           Format="dd/MM/yyyy"
+                           TextColor="Black" />
+                <CheckBox IsChecked="{Binding TareaTO.Estado}" />
+                <Label Text="Tarea completada" TextColor="Black" />
+            </VerticalStackLayout>
+            <!-- 🔴 FOOTER -->
+            <HorizontalStackLayout Spacing="15" HorizontalOptions="Center">
+                <Button Text="Modificar" 
+                        BackgroundColor="#325d88" 
+                        Command="{Binding EditCommand}" />
+                <Button Text="Cerrar" BackgroundColor="#b84743" Clicked="CloseEditPopUp" />
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </Border>
+</toolkit:Popup>
